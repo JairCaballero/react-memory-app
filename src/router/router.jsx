@@ -1,15 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Home from '../pages/Home'
-import More from '../pages/More'
+import LayoutPublic from '../layouts/LayoutPublic'
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/mas',
-    element: <More />
+    element: <LayoutPublic />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      }
+    ]
   }
 ])
 

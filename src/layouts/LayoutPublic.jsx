@@ -1,6 +1,10 @@
+import { Outlet } from 'react-router-dom'
+
 const LayoutPublic = () => {
   return (
-    <div>LayoutPublic</div>
+    <div className='bg-background w-screen h-screen'>
+      <Outlet />
+    </div>
   )
 }
 

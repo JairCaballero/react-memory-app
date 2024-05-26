@@ -1,6 +1,8 @@
 const Home = () => {
   return (
-    <div>Esta es la pagina de inicio de todo</div>
+    <div className='container mx-auto h-full flex items-center justify-center'>
+      Bienvenido al juego de memoria
+    </div>
   )
 }
 
