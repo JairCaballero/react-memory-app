@@ -1,5 +1,9 @@
 # React + Vite
 
+# Dependences
+
+- Generate avatars : https://www.dicebear.com/introduction/
+
 # Requirements
 
 - Difficulty levels from 1 to 15.
