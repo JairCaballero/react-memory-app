@@ -1,7 +1,11 @@
+import { useForm } from 'react-hook-form'
+
 const Home = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+  const { register, handleSubmit, formState: { errors } } = useForm()
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+  })
 
   return (
     <div className='flex items-center justify-center h-screen w-full'>
@@ -13,38 +17,92 @@ const Home = () => {
           <div className='w-full h-40 bg-red-50 text-black'>
             Aca va el carousel de avatars para escoger
           </div>
-          <form onSubmit={handleSubmit} className='w-full grid grid-cols-3 gap-10'>
+          <form onSubmit={onSubmit} className='w-full grid grid-cols-3 gap-10'>
+
+            {/* username */}
             <span className='form-group col-span-2'>
-              <label htmlFor=''>Nombre de usuario</label>
-              <input id='' name='' type='text' />
+              <label htmlFor='username'>Nombre de usuario</label>
+              <input
+                type='text'
+                id='username'
+                name='username'
+                {...register('username', {
+                  required: {
+                    value: true,
+                    message: 'El campo Nombre es obligatorio'
+                  },
+                  minLength: {
+                    value: 3,
+                    message: 'Minimo 10 caracteres'
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: 'Maximo 50 caracteres'
+                  }
+                })}
+              />
+              <span className='text-red-400'>{errors?.username?.message}</span>
             </span>
+
+            {/* type */}
             <span className='form-group'>
-              <label htmlFor='type-game'>Tipo de juego</label>
-              <select id='type-game' name='type-game'>
-                <option value='' disabled>
-                  Selecciona una opcion
-                </option>
+              <label htmlFor='typeGame'>Tipo de juego</label>
+              <select
+                defaultValue=''
+                id='typeGame'
+                name='typeGame'
+                {...register('typeGame', {
+                  required: {
+                    value: true,
+                    message: 'El campo de tipo de juego es obligatorio'
+                  }
+                })}
+              >
+                <option value='' disabled>Selecciona una opcion</option>
                 <option value='1'>Normal</option>
                 <option value='2'>Especial</option>
               </select>
+              <span className='text-red-400'>{errors?.typeGame?.message}</span>
             </span>
+
+            {/* dificulty */}
             <span className='form-group'>
               <label htmlFor='difficulty'>Dificultad</label>
               <input
                 id='difficulty'
                 name='difficulty'
                 type='number'
-                pattern='^(1[0-5]|[1-9])$'
-                title='Please enter a number between 1 and 15'
+                {...register('difficulty', {
+                  required: {
+                    value: true,
+                    message: 'El campo dificultad es obligatorio'
+                  },
+                  pattern: {
+                    value: /^(1[0-5]|[1-9])$/,
+                    message: 'Ingrese un numero de 1 a 15'
+                  }
+                })}
+              />
+              <span className='text-red-400'>{errors?.difficulty?.message}</span>
+            </span>
+
+            {/* lifes */}
+            <span className='form-group'>
+              <label htmlFor='lifes'>Vidas</label>
+              <input
+                id='lifes'
+                name='lifes'
+                type='number'
+                pattern='^[1-5]$'
+                title='Please enter a number between 1 and 5'
+                {...register('lifes')}
               />
             </span>
-            <span className='form-group'>
-              <label htmlFor=''>Vidas</label>
-              <input type='number' pattern='^[1-5]$' title='Please enter a number between 1 and 5' />
-            </span>
+
+            {/* theme */}
             <span className='form-group'>
               <label htmlFor='theme-game'>Tema de el juego</label>
-              <select id='theme-game' name='theme-game'>
+              <select id='theme-game' name='theme-game' {...register('theme-game')}>
                 <option value='' disabled>
                   Selecciona una opcion
                 </option>
@@ -58,9 +116,11 @@ const Home = () => {
                 <option value='2'>Todos</option>
               </select>
             </span>
+
+            {/* inifity */}
             <span className='form-group'>
-              <label htmlFor=''>¿ Juego infinito ?</label>
-              <select id='theme-game' name='theme-game'>
+              <label htmlFor='infinity'>¿ Juego infinito ?</label>
+              <select id='infinity' name='infinity' {...register('infinity')}>
                 <option value='' disabled>
                   Selecciona una opcion
                 </option>
@@ -68,15 +128,21 @@ const Home = () => {
                 <option value='2'>No</option>
               </select>
             </span>
+
+            {/* time limit */}
             <span className='form-group'>
-              <label htmlFor=''>Tiempo limite</label>
+              <label htmlFor='time'>Tiempo limite</label>
               <input
+                id='time'
+                name='time'
                 type='number'
                 min='1'
                 max='15'
                 title='Please enter a number between 1 and 15'
+                {...register('time')}
               />
             </span>
+
             <div className='col-span-3'>
               <button className='play-btn w-fit'>Jugar</button>
             </div>
