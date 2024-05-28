@@ -26,6 +26,7 @@ const Home = () => {
                 type='text'
                 id='username'
                 name='username'
+                className={`${errors?.username ? 'invalid' : ''}`}
                 {...register('username', {
                   required: {
                     value: true,
