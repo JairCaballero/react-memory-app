@@ -1,13 +1,14 @@
 import { useForm } from 'react-hook-form'
 import FormGroup from '../components/FormGroup'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const onSubmit = handleSubmit((data) => {
-    localStorage.setItem(JSON.stringify(data))
-    Navigate('/game')
+    localStorage.setItem('data', JSON.stringify(data))
+    navigate('/game')
   })
 
   return (
