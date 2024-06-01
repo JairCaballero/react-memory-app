@@ -57,6 +57,7 @@ const Home = () => {
           <option value='3'>3</option>
           <option value='4'>4</option>
           <option value='5'>5</option>
+          <option value='6'>Todas</option>
         </FormGroup>
         <FormGroup
           label='Vidas'
