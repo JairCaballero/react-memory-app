@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form'
 import FormGroup from '../components/FormGroup'
+import { Navigate } from 'react-router-dom'
 
 const Home = () => {
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    localStorage.setItem(JSON.stringify(data))
+    Navigate('/game')
   })
 
   return (
@@ -44,25 +46,35 @@ const Home = () => {
             <FormGroup
               label='Dificultad'
               id='difficulty'
-              type='number'
+              type='select'
+              defaultValue=''
               register={register}
               errors={errors}
-              validation={{
-                required: 'El campo dificultad es obligatorio',
-                pattern: { value: /^(1[0-5]|[1-9])$/, message: 'Ingrese un numero de 1 a 15' }
-              }}
-            />
+              validation={{ required: 'Campo obligatorio' }}
+            >
+              <option value='' disabled>Selecciona una opcion</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+            </FormGroup>
             <FormGroup
               label='Vidas'
               id='lifes'
-              type='number'
+              type='select'
+              defaultValue=''
               register={register}
               errors={errors}
-              validation={{
-                required: 'Campo Obligatorio',
-                pattern: { value: /^[1-5]$/, message: 'Ingrese un numero de 1 a 5' }
-              }}
-            />
+              validation={{ required: 'Campo obligatorio' }}
+            >
+              <option value='' disabled>Selecciona una opcion</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+            </FormGroup>
             <FormGroup
               label='Tema de el juego'
               id='themeGame'
@@ -96,7 +108,7 @@ const Home = () => {
               <option value='2'>No</option>
             </FormGroup>
             <FormGroup
-              label='Tiempo limite'
+              label='Tiempo limite (mn)'
               id='time'
               type='number'
               register={register}
