@@ -13,5 +13,4 @@
 - Register name to save score.
 - Themes for memory cards, animals, languages, countries, cities, foods, vehicles, places, people.
 - Game type, time limit with infinite cards.
-- Define avatar and username.
 - A special type of game where after trying to guess, the cards change places.

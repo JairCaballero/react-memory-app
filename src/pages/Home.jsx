@@ -12,23 +12,8 @@ const Home = () => {
   })
 
   return (
-    <div className='flex flex-col items-center justify-center gap-12'>
-      <h1>Welcome to memory game</h1>
-      <div className='w-full h-40 bg-red-50 text-black'>
-        Aca va el carousel de avatars para escoger
-      </div>
+    <div className='flex flex-col items-center justify-center h-screen gap-12'>
       <form onSubmit={onSubmit} className='w-full grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-        <FormGroup
-          label='Nombre de usuario'
-          id='username'
-          register={register}
-          errors={errors}
-          validation={{
-            required: 'Campo obligatorio',
-            minLength: { value: 3, message: 'Minimo 10 caracteres' },
-            maxLength: { value: 20, message: 'Maximo 50 caracteres' }
-          }}
-        />
         <FormGroup
           label='Tipo de juego'
           id='typeGame'
@@ -57,7 +42,6 @@ const Home = () => {
           <option value='3'>3</option>
           <option value='4'>4</option>
           <option value='5'>5</option>
-          <option value='6'>Todas</option>
         </FormGroup>
         <FormGroup
           label='Vidas'
