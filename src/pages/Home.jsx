@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className='flex flex-col items-center justify-center h-screen gap-12'>
       <form onSubmit={onSubmit} className='w-full grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-        <FormGroup
+        {/* <FormGroup
           label='Tipo de juego'
           id='typeGame'
           type='select'
@@ -26,7 +26,7 @@ const Home = () => {
           <option value='' disabled>Selecciona una opcion</option>
           <option value='1'>Normal</option>
           <option value='2'>Especial</option>
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup
           label='Dificultad'
           id='difficulty'
@@ -43,7 +43,7 @@ const Home = () => {
           <option value='4'>4</option>
           <option value='5'>5</option>
         </FormGroup>
-        <FormGroup
+        {/* <FormGroup
           label='Vidas'
           id='lifes'
           type='select'
@@ -58,8 +58,8 @@ const Home = () => {
           <option value='3'>3</option>
           <option value='4'>4</option>
           <option value='5'>5</option>
-        </FormGroup>
-        <FormGroup
+        </FormGroup> */}
+        {/* <FormGroup
           label='Tema de el juego'
           id='themeGame'
           type='select'
@@ -77,8 +77,8 @@ const Home = () => {
           <option value='6'>Juegos</option>
           <option value='7'>Anime</option>
           <option value='8'>Todos</option>
-        </FormGroup>
-        <FormGroup
+        </FormGroup> */}
+        {/* <FormGroup
           label='¿ Juego infinito ?'
           id='infinity'
           type='select'
@@ -90,8 +90,8 @@ const Home = () => {
           <option value='' disabled>Selecciona una opcion</option>
           <option value='1'>Si</option>
           <option value='2'>No</option>
-        </FormGroup>
-        <FormGroup
+        </FormGroup> */}
+        {/* <FormGroup
           label='Tiempo limite (mn)'
           id='time'
           type='number'
@@ -101,7 +101,7 @@ const Home = () => {
             required: 'Campo Obligatorio',
             pattern: { value: /^(1[0-5]|[1-9])$/, message: 'Ingrese un numero de 1 a 15' }
           }}
-        />
+        /> */}
         <div className='md:col-span-2 lg:col-span-3 flex justify-center'>
           <button className='play-btn w-fit'>Jugar</button>
         </div>
